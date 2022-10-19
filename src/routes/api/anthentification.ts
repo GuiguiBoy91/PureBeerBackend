@@ -18,7 +18,7 @@ api.post("/login", async ({ prisma, body }, res) => {
 
       const user = await prisma.user.findUnique({
         where: {
-          pseudo: body.username,
+          username: body.username,
         },
       });
 
@@ -47,9 +47,9 @@ api.post("/login", async ({ prisma, body }, res) => {
   api.post("/register", async ({ prisma, body }, res) => {
     try {
 
-      const { pseudo, firstName, lastName, eMail, phone, password } = body;
+      const { username, password } = body;
 
-      if (!pseudo || !firstName || !lastName || !eMail || !password) {
+      if (!username || !password) {
         return res.status(400).end();
       }
 
@@ -57,13 +57,8 @@ api.post("/login", async ({ prisma, body }, res) => {
 
       await prisma.user.create({
         data: {
-          pseudo,
-          firstName,
-          lastName,
-          eMail,
-          phone,
+          username,
           password: hashed,
-          picture: "null", // mettre dans le schema prisma @default("null")
         },
       });
       

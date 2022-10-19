@@ -75,16 +75,12 @@ api.put("/:id", async ({ prisma, params, body }, response) => {
   }
 
   try {
-    const { pseudo, firstName, lastName, eMail, phone, password } = body;
+    const { username, password } = body;
 
     const updateduser = await prisma.user.update({
       where: { id: user.id },
       data: {
-        pseudo: pseudo || user.pseudo,
-        firstName: firstName || user.firstName,
-        lastName: lastName || user.lastName,
-        eMail: eMail || user.eMail,
-        phone: phone || user.phone,
+        username: username || user.username,
         password: password || user.password,
       },
     });
