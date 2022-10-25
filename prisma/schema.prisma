@@ -26,6 +26,7 @@ model Beer {
   id           Int     @id @default(autoincrement())
 
   name         String  @unique
+  picture      String?
   description  String
 
   userId       String?

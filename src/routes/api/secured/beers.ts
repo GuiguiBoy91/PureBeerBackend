@@ -75,13 +75,14 @@ api.put("/:id", async ({ prisma, params, body }, response) => {
   }
 
   try {
-    const { name, description, userId, typeId } = body;
+    const { name, description, picture, userId, typeId } = body;
 
     const beerUpdated = await prisma.beer.update({
       where: { id: beer.id },
       data: {
         name: name || beer.name,
         description: description || beer.description,
+        picture: picture || beer.picture,
         userId: userId || beer.userId,
         typeId: typeId || beer.typeId,
       },
@@ -101,7 +102,7 @@ api.put("/:id", async ({ prisma, params, body }, response) => {
 api.post("/", async ({ prisma, body }, response) => {
     // Checking mandatory fields
     const missingFields = Object.keys(body).filter(
-      (field) => !["name", "description", "userId", "typeId"].includes(field)
+      (field) => !["name", "description", "picture", "userId", "typeId"].includes(field)
     );
   
     if (missingFields.length > 0) {
@@ -111,10 +112,10 @@ api.post("/", async ({ prisma, body }, response) => {
     }
   
     try {
-      const { name, description, userId, typeId } = body;
+      const { name, description, picture, userId, typeId } = body;
   
       const beer = await prisma.beer.create({
-        data:  {name, description, userId, typeId}
+        data:  {name, description, picture, userId, typeId}
       });
   
       response.status(200).json({
