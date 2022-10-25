@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { authenticateToken } from "../../middlewares/auth";
 
-import anthentification from './anthentification'
+import authentification from './authentification'
 import secured from './secured'
 
 const routes = Router()
 
-routes.use('/anthentification', anthentification)
+routes.use('/auth', authentification)
 routes.use("/", authenticateToken, secured);
 
 export default routes;

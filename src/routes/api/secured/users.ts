@@ -2,6 +2,10 @@ import { Router } from "express";
 
 const api = Router();
 
+api.get("/me", async ({ user }, response) => {
+  response.status(201).json(user);
+});
+
 // Get All Users :: [GET] > /api/users
 api.get("/", async ({ prisma }, response) => {
   try {
