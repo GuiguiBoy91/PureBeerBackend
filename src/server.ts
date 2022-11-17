@@ -8,6 +8,7 @@ export function launch(port: number): void {
 
   /* Middlewares */
   application.use(express.json());
+  application.use(express.static('uploads'));
   application.use(express.urlencoded({ extended: true }));
   application.use(injectPrisma());
   application.use(cors());

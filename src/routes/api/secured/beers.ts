@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { upload } from "../../../middlewares/upload";
 
 const api = Router();
 
@@ -99,10 +100,10 @@ api.put("/:id", async ({ prisma, params, body }, response) => {
 });
 
 // Create One beer :: [POST] > /api/beers
-api.post("/", async ({ prisma, body }, response) => {
+api.post("/", async ({ prisma, body }, response) => {    
     // Checking mandatory fields
     const missingFields = Object.keys(body).filter(
-      (field) => !["name", "description", "picture", "userId", "typeId"].includes(field)
+      (field) => !["name", "description", "userId", "typeId"].includes(field)
     );
   
     if (missingFields.length > 0) {
@@ -112,10 +113,10 @@ api.post("/", async ({ prisma, body }, response) => {
     }
   
     try {
-      const { name, description, picture, userId, typeId } = body;
+      const { name, description, userId, typeId } = body;
   
       const beer = await prisma.beer.create({
-        data:  {name, description, picture, userId, typeId}
+        data:  {name, description, userId, typeId}
       });
   
       response.status(200).json({
@@ -127,6 +128,41 @@ api.post("/", async ({ prisma, body }, response) => {
       });
     }
   });
+
+  api.post(
+    '/:id/picture',
+    upload.single('picture'),
+    async ({prisma, params, file}, res) => {
+      try {
+        const beer = await prisma.beer.findUnique({
+          where: { id: Number(params.id) },
+        });
+
+        if (!beer) {
+          return res.status(400).json({
+            error: `Unknown resource`,
+          });
+        }
+  
+        await prisma.beer.update({
+          where: { id: beer.id },
+          data: {
+            picture: file
+              ? file.path.replace(process.env.STORAGE_PATH, '')
+              : '',
+          },
+        })
+  
+        res.status(204).json({
+          msg: "success",
+        });
+      } catch (error) {
+        res.status(500).json({
+          error: error.message,
+        });
+      }
+    },
+  )
   
 
 export default api;
