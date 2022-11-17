@@ -17,6 +17,13 @@
 
 Don't forget to do the `.env` and `.babelrc` file
 
+#DB config
+DATABASE_URL="postgresql://root:root@localhost:5432/purebeer"
+
+#JWT token
+TOKEN_SECRET="BLBLBL"
+
+
 ### BDD
 
 - 1 `cd docker`
