@@ -1,0 +1,493 @@
+{
+	"info": {
+		"_postman_id": "3329d940-80af-4575-9120-40ad0b4d2a12",
+		"name": "PureBeer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Get one user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/users/1d569cd6-255e-475a-a3fc-1a58f6e8a788",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1d569cd6-255e-475a-a3fc-1a58f6e8a788"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/users",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/users/3d63cd60-0446-41ec-9c91-ca47966e0d21",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"3d63cd60-0446-41ec-9c91-ca47966e0d21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\" : \"Marcelino\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/users/1d569cd6-255e-475a-a3fc-1a58f6e8a788",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1d569cd6-255e-475a-a3fc-1a58f6e8a788"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/users/me",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "beer",
+			"item": [
+				{
+					"name": "Get one beer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/beers/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"beers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all beer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/beers",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"beers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one beer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/beers/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"beers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a beer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\" : \"Marcelino\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/beers/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"beers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a beer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"TEST\",\n    \"description\": \"La Leffe blonde est une bière belge d'abbaye qui possède un caractère à la taille de sa renommée. Brassée par l'abbaye Leffe depuis 1240, elle a su convaincre et s'imposer comme une référence au fil des siècles et se vend aujourd'hui jusqu'en Chine.\",\n    \"userId\": \"180e4f90-3fa2-473d-b8cd-5af6737fc089\",\n    \"typeId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/beers/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"beers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add picture",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"userId\": \"\",\n    \"typeId\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/beers",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"beers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "type",
+			"item": [
+				{
+					"name": "Get one type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/types/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"types",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/types",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one type",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/types/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"types",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"lastName\" : \"Marcelino\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/types/",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"types",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Bière Blonde\",\n    \"description\" : \"Bières qui sont brassées avec des malts d’orge pâles.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/types",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authentification",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"Guigui\",\n  \"password\": \"labiteoq\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/auth/register",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"Guigui\",\n  \"password\": \"labiteoq\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/api/auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JWT Verify",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/api/auth/auth",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikd1aWd1aSIsImlkIjoiMTgwZTRmOTAtM2ZhMi00NzNkLWI4Y2QtNWFmNjczN2ZjMDg5IiwiaWF0IjoxNjY4NjgxNzkwLCJleHAiOjE2Njg2ODUzOTB9.uWuaDfVzxvP_noXFvCLZEq1uVBSpJ4GWTW_cGPuZp8U",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost:8080"
+		}
+	]
+}
